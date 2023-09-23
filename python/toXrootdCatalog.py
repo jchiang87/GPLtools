@@ -85,8 +85,10 @@ group = options.group
 executeThis = options.execute
 
 xrootRedirector = 'root://glast-rdr.slac.stanford.edu//glast/'
-#xrdcpLoc = '/afs/slac/g/glast/applications/xrootd/PROD/bin/xrdcp '
-xrdcpLoc = '/sdf/data/fermi/a/applications/xrootd/dist/v3.1.1/i386_rhel60/bin/xrdcp'
+gpl_xrootd_dir = os.getenv("GPL_XROOTD_DIR",
+                           "/sdf/data/fermi/a/applications/xrootd/dist/"
+                           "v3.1.1/i386_rhel60/bin")
+xrdcpLoc = os.path.join(gpl_xrootd_dir, 'xrdcp')
 
 ##
 ## Check existence of the input file
