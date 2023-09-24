@@ -6,7 +6,9 @@ import os
 import runner
 
 xrootStart = "root:"
-xrootdLocation = os.getenv("GPL_XROOTD_DIR","/afs/slac.stanford.edu/g/glast/applications/xrootd/PROD/bin")
+xrootdLocation = os.getenv("GPL_XROOTD_DIR",
+                           "/sdf/data/fermi/a/applications/xrootd/dist/"
+                           "v3.1.1/i386_rhel60/bin")
 xrdcp    = xrootdLocation+"/xrdcp "
 xrdstat  = xrootdLocation+"/xrd.pl -w stat "
 xrdrm    = xrootdLocation+"/xrd.pl rm "
@@ -30,7 +32,7 @@ def copy(fromFile, toFile):
     log.info("Executing...\n"+xrdcmd)
     rc = runner.run(xrdcmd)
     log.debug("xrdcp return code = "+str(rc))
-    
+
     return rc
 
 
